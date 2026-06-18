@@ -12,15 +12,17 @@ HOLFY27 (FY2027) format.
 ```plain
 EDU-2701/
 ├── config.ini              # Lab configuration (required)
-├── README.txt              # This file (required)
+├── README.md               # This file
+|── lab-updates.sh.         # Runs at the end of labstartup as part of the final.py. Use this to automatically script file copies, script executions, etc...
+|── files                   # Any files placed in this folder are automatically copied to the console vm: /home/holuser/Documents/files
 ├── holorouter/             # Router configuration overrides
 │   ├── allowlist           # Additional allowed domains
 │   ├── squid.conf          # Squid proxy override
 │   ├── iptablescfg.sh      # Custom firewall rules (optional)
 │   └── startlist           # Startup-only allowed domains
 ├── Startup/                # Startup module overrides
-│   ├── prelim.py           # Override core prelim module (optional)
-│   └── VCFfinal.py         # Override core VCFfinal module (optional)
+│   ├── prelim.py           # Override core prelim module (optional - warning, if overridden, any updates to core will be missed)
+│   └── VCFfinal.py         # Override core VCFfinal module (optional - warning, if overridden, any updates to core will be missed)
 ├── scripts/                # Custom scripts
 │   ├── setup-demo.sh       # Example bash script (optional)
 │   └── configure-app.py    # Example Python script (optional)
@@ -43,6 +45,8 @@ The `config.ini` file defines lab parameters:
 - **[CUSTOM]**: Lab-specific key-value pairs
 
 ### Startup Module Overrides
+
+WARNING: if overridden, any updates to core will be missed
 
 Place Python files in `Startup/` to override core modules:
 
