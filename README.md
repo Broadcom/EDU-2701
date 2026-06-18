@@ -1,6 +1,4 @@
-# EDU-2701 - Future Lab
-
-## HOLFY27 VPodRepo Format
+# EDU-2701
 
 ## Overview
 
